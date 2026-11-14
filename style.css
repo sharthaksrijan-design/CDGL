@@ -1,0 +1,335 @@
+/* Central Dogma of Life — shared site styles */
+:root {
+  color-scheme: light;
+  --color-ink: #172a3a;
+  --color-muted: #526579;
+  --color-paper: #f5f8fa;
+  --color-surface: #ffffff;
+  --color-line: #dce5eb;
+  --color-accent: #087f8c;
+  --color-accent-dark: #075e69;
+  --color-accent-soft: #e4f4f3;
+  --color-sidebar: #102b3c;
+  --color-sidebar-text: #e7f0f5;
+  --content-width: 76rem;
+  --sidebar-width: 17rem;
+  --radius: 0.8rem;
+  --shadow: 0 0.8rem 2rem rgb(20 49 67 / 7%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--color-accent-dark);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 0.18rem solid #f2b84b;
+  outline-offset: 0.18rem;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  transform: translateY(-180%);
+  border-radius: 0.35rem;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+  padding: 0.85rem clamp(1rem, 4vw, 3rem);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-brand {
+  color: var(--color-ink);
+  font-size: 1.08rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.site-brand span {
+  color: var(--color-accent);
+}
+
+.site-header-note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+}
+
+.site-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  max-width: var(--content-width);
+  min-height: calc(100vh - 4.5rem);
+  margin: 0 auto;
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 1.5rem 1rem 2rem;
+  background: var(--color-sidebar);
+  color: var(--color-sidebar-text);
+}
+
+.sidebar-heading {
+  margin: 0 0 1.2rem;
+  padding: 0 0.65rem;
+  color: #a9c5d2;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-group + .nav-group {
+  margin-top: 1.15rem;
+}
+
+.nav-group-title {
+  margin: 0 0 0.35rem;
+  padding: 0 0.65rem;
+  color: #8eafbe;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chapter-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter-nav a {
+  display: block;
+  padding: 0.42rem 0.65rem;
+  border-radius: 0.4rem;
+  color: var(--color-sidebar-text);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.chapter-nav a:hover,
+.chapter-nav a[aria-current="page"] {
+  background: #204559;
+  color: #ffffff;
+}
+
+.chapter-nav a[aria-current="page"] {
+  box-shadow: inset 0.2rem 0 #53c5c3;
+  font-weight: 700;
+}
+
+.page-content {
+  min-width: 0;
+  padding: clamp(1.5rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--color-accent-dark);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  max-width: 48rem;
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+
+.page-intro {
+  max-width: 48rem;
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.chapter-content {
+  max-width: 48rem;
+  margin-top: 2.2rem;
+}
+
+.chapter-section {
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.chapter-section.evidence-box {
+  margin: 1.1rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--color-line);
+  border-left: 0.24rem solid var(--color-accent);
+  border-radius: var(--radius);
+  background: var(--color-accent-soft);
+}
+
+.chapter-section.evidence-box h2 {
+  color: var(--color-accent-dark);
+}
+
+.chapter-section h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.38rem;
+  letter-spacing: -0.02em;
+}
+
+.chapter-section h3 {
+  margin: 1.15rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.chapter-section p {
+  margin: 0.5rem 0;
+  color: var(--color-muted);
+}
+
+.chapter-section table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  color: var(--color-ink);
+  font-size: 0.92rem;
+}
+
+.chapter-section caption {
+  margin-bottom: 0.45rem;
+  font-weight: 650;
+  text-align: left;
+}
+
+.chapter-section th,
+.chapter-section td {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.chapter-section th {
+  background: var(--color-accent-soft);
+}
+
+.chapter-image {
+  margin: 1.25rem 0;
+}
+
+.chapter-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.chapter-image figcaption {
+  margin-top: 0.45rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.content-list {
+  padding-left: 1.3rem;
+  color: var(--color-muted);
+}
+
+.content-list li + li {
+  margin-top: 0.35rem;
+}
+
+.site-footer {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+@media (max-width: 52rem) {
+  .site-layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 1rem;
+  }
+
+  .sidebar-heading {
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 0.75rem;
+  }
+
+  .nav-group + .nav-group {
+    margin-top: 0;
+  }
+
+  .page-content {
+    padding: 2rem clamp(1.15rem, 5vw, 2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
